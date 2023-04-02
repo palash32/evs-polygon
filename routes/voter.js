@@ -1,0 +1,10 @@
+const express = require('express');
+const router = express.Router();
+const voterEmails = require('./emails/voter');
+router.post('/register', voterEmails.create);
+router.post('/authenticate', voterEmails.authenticate);
+router.post('/', voterEmails.getAll);
+router.put('/:voterId', voterEmails.updateById);
+router.delete('/:voterId', voterEmails.deleteById);
+router.post('/resultMail', voterEmails.resultMail);
+module.exports = router;
